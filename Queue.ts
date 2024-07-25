@@ -9,9 +9,9 @@ export default class Queue<E> {
     }
 
     public dequeue(): E | null {
-        let first = this.length() ? this.data[0] : null;
+        let first = !this.isEmpty() ? this.data[0] : null;
 
-        for (let i = 1; i < this.length(); i++)
+        for (let i = 1; i < this.data.length; i++)
             this.data[i - 1] = this.data[i];
 
         this.size--;
@@ -20,19 +20,19 @@ export default class Queue<E> {
     }
 
     public front(): E | null {
-        return this.size
+        return !this.isEmpty()
             ? this.data[0]
             : null;
     }
 
     public back(): E | null {
-        return this.size
-            ? this.data[this.length() - 1]
+        return !this.isEmpty()
+            ? this.data[this.data.length - 1]
             : null;
     }
 
-    public length(): number {
-        return this.size;
+    public isEmpty(): boolean {
+        return !this.size;
     }
 
     public clear(): void {

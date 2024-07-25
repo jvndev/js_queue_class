@@ -10,7 +10,7 @@ queue.enqueue(3);
 
 console.log(queue.toString());
 
-while (queue.length()) {
+while (!queue.isEmpty()) {
     console.log(`${queue.front()} ${queue.back()}`);
     console.log(`*${queue.dequeue()}`);
 }
